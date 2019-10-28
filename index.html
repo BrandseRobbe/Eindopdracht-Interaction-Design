@@ -9,15 +9,31 @@
 		<meta name="msapplication-TileColor" content="#3385FF" />
 		<meta name="theme-color" content="#3385FF" />
 
+		<!-- leaflet CSS -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+			integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+			crossorigin=""
+		/>
+		<!-- Make sure you put this AFTER Leaflet's CSS -->
+		<script
+			src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+			integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+			crossorigin=""
+		></script>
+
+		<script src="./script/leaflet-providers.js"></script>
+		<script src="./script/app.js"></script>
+
 		<link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/screen.css" />
-
-		<script type="text/javascript" src=""></script>
-		<script defer src="./script/validation.js"></script>
 	</head>
 	<body>
 		<section class="o-row o-row--lg o-row--login">
-			<div class="o-container u-max-width-xs"></div>
+			<div class="o-container u-3-of-4-bp3">
+				<div class="c-map" id="mapid"></div>
+			</div>
 		</section>
 	</body>
 </html>
