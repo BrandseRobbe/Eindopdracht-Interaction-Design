@@ -1323,6 +1323,9 @@ more padding on the right to avoid overlap
 	height: 90vh;
 	box-sizing: border-box;
 }
+.c-satellite {
+	height: 75px;
+}
 
 /*------------------------------------*\
 #States
