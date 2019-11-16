@@ -1318,13 +1318,33 @@ more padding on the right to avoid overlap
 	}
 }
 
-/* map */
+/* map v1 
 .c-map {
-	height: 90vh;
-	box-sizing: border-box;
+  height: 100vh;
+  box-sizing: border-box;
 }
 .c-satellite {
-	height: 75px;
+  height: 75px;
+}
+*/
+/* globe styles*/
+.c-earth {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #000;
+	position: absolute;
+	height: 100vh;
+}
+.c-filter {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: white;
+	padding: 20px;
+}
+.c-filter-knop {
 }
 
 /*------------------------------------*\

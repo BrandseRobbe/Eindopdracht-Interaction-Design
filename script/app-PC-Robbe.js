@@ -7,28 +7,21 @@ var map;
 let url = 'https://www.n2yo.com/rest/v1/satellite/above/';
 let key = '?apiKey=6MTZQ7-QW9KS9-X73GC5-47T0';
 
-var earth;
-var options;
-
 let satellite_icon;
 const delete_watermark = function() {
-	//console.log('deleting watermark'); this function deletes the watermark in the corner
-	let watermark = document.querySelector('.cesium-credit-textContainer');
-	watermark.parentNode.removeChild(watermark);
+	document.querySelector('.leaflet-control-attribution').remove();
 };
 
 const show_satellite = async function() {
-	//get satellite date from API and puts them into an object
-	let endpoint = `${url}/${position[0]}/${position[1]}/0/10/0/${key}`;
+	let endpoint = `${url}/${position[0]}/${position[1]}/0/15/0/${key}`;
 	console.log('getting: ' + endpoint);
 	const get = await fetch(endpoint);
 	const satellites = await get.json();
-
-	//console.log(satellites);
+	console.log(satellites);
 	for (let satellite of satellites.above) {
-		//console.log(satellite);
-		var marker = WE.marker([satellite.satlat, satellite.satlng], './img/svg/satelliet.svg', 80, 80).addTo(earth);
-		marker.bindPopup(satellite.satname, { maxWidth: 70 });
+		console.log(satellite);
+		let icon = L.marker([satellite.satlat, satellite.satlng], { icon: satellite_icon }).addTo(map);
+		icon.bindPopup(satellite.satname);
 	}
 };
 
@@ -36,18 +29,18 @@ const initmap = function() {
 	console.log('init map');
 	console.log(position);
 	if (position != null) {
-		options = {
-			atmosphere: true,
-			center: position,
-			zoom: 7,
-			minZoom: 1,
-			maxZoom: 5
-		};
-		earth = new WE.map('js-earth', options);
-		// og: http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg
-		//https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
-		//https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}
-		WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', options).addTo(earth);
+		map = L.map('mapid').setView(position, 13);
+		L.tileLayer.provider('Wikimedia').addTo(map);
+
+		satellite_icon = L.icon({
+			iconUrl: './img/png/satelietv1.png',
+			iconSize: [75, 'auto'], // size of the icon
+			//shadowSize: [50, 64], // size of the shadow
+			iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+			//shadowAnchor: [4, 62], // the same for the shadow
+			popupAnchor: [40, -60] // point from which the popup should open relative to the iconAnchor
+			//className: 'c-satellite'
+		});
 
 		delete_watermark();
 		show_satellite();
@@ -71,6 +64,7 @@ const get_location = function() {
 
 const init = function() {
 	console.log('dom geladen');
+	// console.log(get_location());
 	get_location();
 };
 document.addEventListener('DOMContentLoaded', init);
