@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="x-ua-compatible" content="ie=edge" />
-		<title>What's above</title>
-		<meta name="description" content="Eindopdracht Interaction Design" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="msapplication-TileColor" content="#3385FF" />
-		<meta name="theme-color" content="#3385FF" />
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>What's above</title>
+    <meta name="description" content="Eindopdracht Interaction Design" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="msapplication-TileColor" content="#3385FF" />
+    <meta name="theme-color" content="#3385FF" />
 
-		<script src="./script/app.js"></script>
-		<script src="http://www.webglearth.com/v2/api.js"></script>
+    <script src="./script/app.js"></script>
+    <script src="http://www.webglearth.com/v2/api.js"></script>
 
-		<link rel="stylesheet" href="css/normalize.css" />
-		<link rel="stylesheet" href="css/screen.css" />
-	</head>
-	<body>
-		<div class="c-earth" id="js-earth"></div>
-		<div class="c-filter">
-			<div class="c-filter-knop" style="width: 300px;">
-				<p>Filterknop</p>
-				<div class="c-c-sattype">
-					test
-				</div>
-			</div>
-		</div>
-	</body>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/screen.css" />
+  </head>
+  <body>
+    <div class="c-earth" id="js-earth"></div>
+    <div class="c-filter">
+      <div class="c-filter-knop" style="width: 300px;">
+        <p style="color: black;">Filterknop</p>
+        <form>
+          <ul class="o-list c-option-list">
+            <li class="c-custom-option">
+              <input class="o-hide-accessible c-option--hidden" type="checkbox" id="checkbox1" />
+              <label class="c-filter-sat" for="checkbox1">
+                <p class="c-filter-satnaam">hier komt de satnaam1</p>
+                <svg class="c-checkicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.91 54.66">
+                  <polyline points="2 26.2 25.6 52.66 62.91 2" />
+                </svg>
+              </label>
+            </li>
+            <li class="c-custom-option">
+              <input class="o-hide-accessible c-option--hidden" type="checkbox" id="checkbox2" />
+              <label class="c-filter-sat" for="checkbox2">
+                <p class="c-filter-satnaam">hier komt de satnaam2</p>
+                <svg class="c-checkicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.91 54.66">
+                  <polyline points="2 26.2 25.6 52.66 62.91 2" />
+                </svg>
+              </label>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
