@@ -1,3 +1,6 @@
+// https://sites.google.com/site/webglearth/ documentation earthgl
+// https://www.n2yo.com/api/#above api documentation
+
 'use strict';
 
 let mymap;
@@ -61,7 +64,7 @@ let sat_types = [
 	'Glonass Constellation',
 	'Starlink'
 ];
-let displayed_sats = [];
+let displayed_sats = new Object();
 
 var earth;
 var options;
@@ -75,7 +78,7 @@ const delete_watermark = function() {
 
 const show_satellite = async function(typeid) {
 	//get satellite date from API and puts them into an object
-	let endpoint = `${url}/${position[0]}/${position[1]}/0/10/${typeid}/${key}`;
+	let endpoint = `${url}/${position[0]}/${position[1]}/0/70/${typeid}/${key}`;
 	console.log('getting: ' + endpoint);
 	const get = await fetch(endpoint);
 	const satellites = await get.json();
@@ -89,9 +92,12 @@ const show_satellite = async function(typeid) {
 			//satelliet image en popup met de naam weergeven
 			var marker = WE.marker([satellite.satlat, satellite.satlng], './img/svg/satelliet.svg', 80, 80).addTo(earth);
 			marker.bindPopup(satellite.satname, { maxWidth: width });
+			displayed_sats[typeid].push(marker);
 		}
-	} catch {
+		console.log(displayed_sats);
+	} catch (error) {
 		console.log('none found');
+		//console.log(error);
 	}
 };
 
@@ -113,7 +119,6 @@ const initmap = function() {
 		WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', options).addTo(earth);
 
 		delete_watermark();
-		// show_satellite(1);
 	}
 };
 
@@ -134,17 +139,23 @@ const get_location = function() {
 };
 
 const select_option = function(object) {
-	// console.log(object.id);
-	if (!displayed_sats.includes(object.id)) {
-		displayed_sats.push(object.id);
+	let typeid = sat_types.indexOf(object.id) + 1;
+	typeid = typeid.toString();
+	//checking if the filter needs to be added or removed
+	if (!Object.keys(displayed_sats).includes(typeid)) {
+		// not yet selected -> add satellites
+		console.log('adding sats');
+		displayed_sats[typeid] = [];
+		show_satellite(typeid);
 	} else {
-		displayed_sats.pop(object.id);
-	}
-	console.log(displayed_sats);
-	for (let satnaam of displayed_sats) {
-		//console.log(satnaam);
-		//console.log(sat_types.indexOf(satnaam));
-		show_satellite(sat_types.indexOf(satnaam) + 1);
+		// was selected -> remove satellites
+		console.log('deleteing sats');
+		for (let marker of displayed_sats[typeid]) {
+			marker.removeFrom(earth);
+			console.log(marker);
+		}
+		delete displayed_sats[typeid];
+		console.log(displayed_sats);
 	}
 };
 
