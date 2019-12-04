@@ -708,7 +708,6 @@ input::placeholder {
 .c-showlist {
   margin-top: 16px;
   position: absolute;
-  right: 0;
   top: 0px;
   padding: 16px;
   z-index: 10;
@@ -735,10 +734,19 @@ input::placeholder {
   transform: rotate(180deg);
 }
 .c-option--hidden:checked ~ .c-filter {
-  transform: translateX(+100%);
+  opacity: 0;
+  /* transform: translateX(+100%); */
 }
 .c-option--hidden > .c-showlist {
   display: none;
+}
+.c-option--hidden:checked + .c-showlist {
+  left: auto;
+  right: 0px;
+  width: 56px;
+}
+.c-option--hidden + .c-showlist {
+  left: 0px;
 }
 
 /* filter responsive maken (de breedte, font-size, margin tussen knoppen*/
@@ -747,7 +755,8 @@ input::placeholder {
   width: 100%;
 }
 .c-sat-types {
-  max-width: 500px;
+  padding-left: 24px;
+  max-width: 400px;
   margin: auto;
 }
 .c-filter-satnaam {
@@ -759,15 +768,34 @@ input::placeholder {
 .c-custom-option + .c-custom-option {
   margin-top: var(--global-whitespace-sm);
 }
+
+.c-option--hidden + .c-showlist {
+  margin-left: -8px;
+  margin-top: 8px;
+}
+.c-option--hidden + .c-showlist {
+  /* padding-left: 16px; */
+}
+.c-showlist-icon {
+  margin: auto;
+}
 @media (min-width: 576px) {
   .c-filter {
     width: 100%;
   }
   .c-sat-types {
     margin: auto;
+    padding: 0px 16px;
+  }
+  .c-showlist {
+    margin-left: 16px;
   }
   .c-filter-satnaam {
     font-size: 20px;
+  }
+  .c-option--hidden + .c-showlist {
+    margin-left: 16px;
+    margin-top: 16px;
   }
 }
 @media (min-width: 768px) {
@@ -779,6 +807,10 @@ input::placeholder {
   }
 }
 @media (min-width: 992px) {
+  .c-option--hidden:checked ~ .c-filter {
+    opacity: 1;
+    transform: translateX(+100%);
+  }
   .c-sat-types {
     max-width: none;
     margin: auto;
@@ -798,8 +830,13 @@ input::placeholder {
     position: absolute;
     width: 56px;
     right: 400px;
+    left: auto;
     background-color: var(--global-color-neutral-xxxx-light-transparent);
   }
+  /* .c-showlist-icon {
+    width: 32px;
+    height: 32px;
+  } */
 }
 @media (min-width: 1200px) {
 }
