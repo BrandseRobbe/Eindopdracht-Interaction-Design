@@ -122,6 +122,7 @@ const initmap = function() {
     WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', options).addTo(earth);
 
     delete_watermark();
+    load_types();
     preselect_categories();
   }
 };
@@ -170,6 +171,7 @@ const select_option = function(object) {
 };
 
 const load_types = function() {
+  console.log('load_types');
   let typelist = document.querySelector('#js-typelist');
   typelist.innerHTML = '';
   for (let sat of all_sats) {
@@ -198,14 +200,17 @@ const preselect_categories = function() {
   });
   setTimeout(function() {
     for (let category of preselected) {
-      document.querySelector(`#${category}`).click();
+      setTimeout(document.querySelector(`#${category}`).click(), 500);
     }
   }, 1500);
 };
 
 const init = function() {
   console.log('dom geladen');
-  load_types();
   get_location();
 };
-document.addEventListener('DOMContentLoaded', init);
+// document.addEventListener('DOMContentLoaded', init);
+// document.addEventListener('load', init);
+window.onload = function() {
+  init();
+};
