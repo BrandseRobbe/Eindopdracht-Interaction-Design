@@ -184,6 +184,24 @@ const load_types = function() {
         </label>
       </li>`;
   }
+
+  preselect_categories();
+};
+
+const preselect_categories = function() {
+  let preselected = ['Brightest', 'ISS', 'Weather'];
+
+  var event = new Event('input', {
+    bubbles: true,
+    cancelable: true
+  });
+  //kleine delay is nodig omdat het eerst de andere code moet kunnen inladen
+  setTimeout(function() {
+    for (let category of preselected) {
+      console.log(document.querySelector(`#${category}`));
+      document.querySelector(`#${category}`).click();
+    }
+  }, 200);
 };
 
 const init = function() {

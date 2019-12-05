@@ -48,7 +48,7 @@
   --global-color-neutral: #8b8c9a;
   --global-color-neutral-dark: #757787;
   --global-color-neutral-x-dark: #606274;
-  --global-color-neutral-xx-dark: #434649;
+  --global-color-neutral-xx-dark: #4b4c60;
   --global-color-neutral-xxx-dark: #35374d;
   --global-color-neutral-xxxx-dark: #20223a;
   --global-color-error: #ff3333;
@@ -638,7 +638,6 @@ input::placeholder {
   background-color: var(--global-color-neutral-xxxx-light-transparent);
   padding: 16px;
   padding-right: 0px;
-  padding-bottom: 0px;
   z-index: 2;
   height: 100vh;
   display: grid;
@@ -666,6 +665,8 @@ input::placeholder {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-image: url('../img/jpg/background-space-transparent.jpg');
 }
+.c-option-list {
+}
 
 .c-filter-sat {
   padding: 8px 16px;
@@ -674,18 +675,7 @@ input::placeholder {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: ease-in-out 0.2s;
-}
-.c-filter-sat:hover {
-  /* margin-left: 10px; */
-  transform: scaleX(1.07) scaleY(1.07);
-  box-shadow: inset 0px 0px 181px -85px rgba(255, 255, 255, 1);
-}
-.c-option--hidden:checked + .c-filter-sat:hover {
-  box-shadow: inset 0px 0px 181px -85px rgba(255, 255, 255, 0.4);
-}
-.c-option--hidden:focus + .c-filter-sat {
-  transform: scaleX(1.07) scaleY(1.07);
+  transition: ease-in-out 0.3s;
 }
 .c-checkicon {
   margin-left: 8px;
@@ -723,13 +713,13 @@ input::placeholder {
   z-index: 10;
   height: 56px;
   width: auto;
+  border-radius: 10px 0 0 10px;
   transition: 0.5s ease;
   display: flex;
 }
 
 .c-option--hidden:checked + .c-showlist {
   background-color: var(--global-color-neutral-xxxx-light-transparent);
-  border-radius: 10px 0 0 10px;
 }
 .c-option--hidden:hover + .c-showlist {
   background-color: white;
@@ -741,17 +731,13 @@ input::placeholder {
 }
 
 .c-option--hidden:focus + .c-showlist {
-  border: 5px solid var(--global-color-neutral-xx-dark);
-  border-radius: 10px;
+  border: var(--global-borderWidth) solid #434649;
 }
-.c-option--hidden:checked:focus + .c-showlist {
-  border: 5px solid var(--global-color-neutral-xx-dark);
-  border-radius: 10px 0 0 10px;
-}
+
 .c-showlist-icon {
   width: 24px;
   height: 24px;
-  fill: var(--global-color-neutral-xx-dark);
+  fill: #434649;
   transition: 0.5s ease;
 }
 /* icon rotate */
@@ -855,29 +841,20 @@ input::placeholder {
     position: absolute;
     width: 56px;
     right: 0px;
-    border-radius: 10px 0 0 10px;
   }
   .c-option--hidden + .c-showlist {
     position: absolute;
     width: 56px;
     right: 400px;
     left: auto;
-    border-radius: 10px 0 0 10px;
     background-color: var(--global-color-neutral-xxxx-light-transparent);
   }
   .c-option--hidden:hover + .c-showlist {
     background-color: white;
     border-radius: 10px 0 0 10px;
   }
-  .c-option--hidden:focus + .c-showlist {
-    border-radius: 10px 0 0 10px;
-  }
 }
 @media (min-width: 1200px) {
-}
-/* ook al staat de filter buiten het scherm met de tab toest kan je ze selecteren, hieronder verberg ik ze */
-.c-option--hidden:checked ~ .c-filter .c-sat-types .c-option-list {
-  display: none;
 }
 
 /*------------------------------------*\
