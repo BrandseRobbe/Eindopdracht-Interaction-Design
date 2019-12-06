@@ -954,6 +954,68 @@ input::placeholder {
   margin-bottom: 16px;
   font-weight: 200;
 }
+.c-input-container {
+  position: relative;
+  height: 50px;
+}
+.c-input-text {
+  position: absolute;
+  font-size: 18px;
+  line-height: 18px;
+  bottom: 8px;
+  left: 16px;
+
+  transition: 0.4s ease-out;
+}
+.c-input-email {
+  width: 400px;
+  font-size: 18px;
+  line-height: 16px;
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid var(--global-color-neutral-dark);
+  height: 20px;
+  color: var(--global-color-neutral-xxxx-light);
+  padding: 16px 16px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  outline: none;
+  /* transition: 0.2s ease-in; */
+
+  /* background: rgb(50, 51, 51); */
+  /* background: linear-gradient(90deg, rgba(50, 51, 51, 1) 0%, rgba(0, 0, 0, 1) 100%); */
+}
+.c-has-val {
+  transform: translateY(-27px);
+}
+.c-input-email:hover {
+  box-shadow: 0px 0px 25px -6px rgba(255, 255, 255, 0.75);
+}
+.c-input-email:focus,
+.c-input-email:active {
+  animation: background-animation 1s ease;
+
+  border: 1px solid var(--global-color-neutral-xxx-light);
+  border-radius: 10px;
+
+  /* background: rgba(50, 51, 51, 1); */
+  /* background: linear-gradient(90deg, rgba(158, 158, 158, 1) 0%, rgba(50, 51, 51, 1) 100%); */
+}
+.c-input-email::before {
+  /* background: linear-gradient(90deg, rgba(158, 158, 158, 1) 0%, rgba(50, 51, 51, 1) 50%, rgba(0, 0, 0, 1) 100%); */
+  background-color: red;
+  height: 34px;
+  width: 249px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 40;
+}
+.c-input-email:focus + .c-input-text {
+  bottom: none;
+  transform: translateY(-27px);
+}
 
 @media (min-width: 576px) {
   .c-title {

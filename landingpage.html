@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/screen.css" />
+    <script src="./script/landingpagejs.js"></script>
   </head>
   <body>
     <div class="c-page">
@@ -22,9 +23,12 @@
         <div class="c-content">
           <h1 class="c-title">What's above</h1>
           <p class="c-description">Zie direct welke satellieten boven je locatie zweven</p>
-          <form class="c-abonner">
+          <form class="c-abonner" action="">
             <p class="c-description">Voor het laatste nieuws en updates</p>
-            <input type="text" class="c-input" placeholder="Geef hier uw emailadres" />
+            <div class="c-input-container">
+              <input type="text" class="c-input-email" id="js-email" />
+              <label class="c-input-text" for="js-email">Email</label>
+            </div>
             <button>Abonneer</button>
           </form>
         </div>
