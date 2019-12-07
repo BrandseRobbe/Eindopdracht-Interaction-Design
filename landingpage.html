@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>What's above</title>
-    <meta name="description" content="Eindopdracht Interaction Design" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="msapplication-TileColor" content="#3385FF" />
-    <meta name="theme-color" content="#3385FF" />
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<title>What's above</title>
+		<meta name="description" content="Eindopdracht Interaction Design" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="msapplication-TileColor" content="#20223a" />
+		<meta name="theme-color" content="#20223a" />
 
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/screen.css" />
-    <script src="./script/landingpagejs.js"></script>
-  </head>
-  <body>
-    <div class="c-page">
-      <div class="c-section">
-        <div class="c-mockups">
-          <img class="c-laptop" src="./img/png/MockupLaptopv2.png" alt="Laptop met app op" />
-          <img class="c-phone" src="./img/png/mockup phonev2.png" alt="Gsm met app op" />
-        </div>
-        <div class="c-content">
-          <h1 class="c-title">What's above</h1>
-          <p class="c-description">Zie direct welke satellieten boven je locatie zweven</p>
-          <form class="c-abonner" action="">
-            <p class="c-description">Voor het laatste nieuws en updates</p>
-            <div class="c-input-container">
-              <input type="text" class="c-input-email" id="js-email" />
-              <label class="c-input-text" for="js-email">Email</label>
-            </div>
-            <button>Abonneer</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </body>
+		<link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/favicon-180.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16.png" />
+		<link rel="manifest" href="site.webmanifest" />
+		<link rel="mask-icon" href="./img/favicons/safari-pinned-tab.svg" color="#20223a" />
+
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/screen.css" />
+		<script src="./script/landingpagejs.js"></script>
+	</head>
+	<body>
+		<div class="c-page">
+			<div class="c-section">
+				<div class="c-mockups">
+					<img class="c-laptop" src="./img/png/MockupLaptopv2.png" alt="Laptop met app op" />
+					<img class="c-phone" src="./img/png/mockup phonev2.png" alt="Gsm met app op" />
+				</div>
+				<div class="c-content">
+					<h1 class="c-title">What's above</h1>
+					<p class="c-description">Zie direct welke satellieten boven je locatie zweven</p>
+					<form id="js-form" onsubmit="return false">
+						<p class="c-description">Voor het laatste nieuws en updates</p>
+						<div class="c-input-container">
+							<p class="c-error-message">Error message</p>
+							<div class="c-gradient-container">
+								<input type="text" class="c-input-email" id="js-email" />
+								<div class="c-gradient"></div>
+							</div>
+							<label class="c-input-text" for="js-email">Email</label>
+						</div>
+						<button class="o-button-reset c-input-button" id="js-submit">Abonneer</button>
+					</form>
+					<p class="c-description c-show-succes">Uw e-mailadres is geregistreerd</p>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

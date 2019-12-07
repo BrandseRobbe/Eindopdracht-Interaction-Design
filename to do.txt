@@ -1,7 +1,0 @@
-remove satellieten
-prevent dubbels
-refresh knop
-
-feedback geven als er geen gevonden is
-
-select all knop

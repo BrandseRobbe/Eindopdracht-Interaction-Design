@@ -10,7 +10,7 @@ var map;
 let url = 'https://www.n2yo.com/rest/v1/satellite/above/';
 let key = '?apiKey=6MTZQ7-QW9KS9-X73GC5-47T0';
 
-let search_radius = 70;
+let search_radius = 90;
 let search_alt = 0;
 
 let all_sats = [

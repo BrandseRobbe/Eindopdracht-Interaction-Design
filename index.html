@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>What's above</title>
-    <meta name="description" content="Eindopdracht Interaction Design" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="msapplication-TileColor" content="#3385FF" />
-    <meta name="theme-color" content="#3385FF" />
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<title>What's above</title>
+		<meta name="description" content="Eindopdracht Interaction Design" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="msapplication-TileColor" content="#20223a" />
+		<meta name="theme-color" content="#20223a" />
 
-    <script src="./script/app.js"></script>
-    <script src="http://www.webglearth.com/v2/api.js"></script>
+		<link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/favicon-180.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16.png" />
+		<link rel="manifest" href="site.webmanifest" />
+		<link rel="mask-icon" href="./img/favicons/safari-pinned-tab.svg" color="#20223a" />
 
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/screen.css" />
-  </head>
-  <body>
-    <div class="c-earth" id="js-earth"></div>
-    <input class="o-hide-accessible c-option--hidden" type="checkbox" id="navcheck" checked />
-    <label class="c-showlist" for="navcheck">
-      <svg class="c-showlist-icon" viewBox="0 0 11.67 19.8">
-        <path d="M11.67,1.77,9.9,0,0,9.9l9.9,9.9L11.67,18,3.54,9.9Z" />
-      </svg>
-    </label>
-    <div class="c-filter">
-      <div class="c-top-section"></div>
-      <form class="c-sat-types">
-        <ul class="o-list c-option-list" id="js-typelist"></ul>
-      </form>
-    </div>
-  </body>
+		<script src="./script/app.js"></script>
+		<script src="http://www.webglearth.com/v2/api.js"></script>
+
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/screen.css" />
+	</head>
+	<body>
+		<div class="c-earth" id="js-earth"></div>
+		<input class="o-hide-accessible c-option--hidden" type="checkbox" id="navcheck" checked />
+		<label class="c-showlist" for="navcheck">
+			<svg class="c-showlist-icon" viewBox="0 0 11.67 19.8">
+				<path d="M11.67,1.77,9.9,0,0,9.9l9.9,9.9L11.67,18,3.54,9.9Z" />
+			</svg>
+		</label>
+		<div class="c-filter">
+			<div class="c-top-section"></div>
+			<form class="c-sat-types">
+				<ul class="o-list c-option-list" id="js-typelist"></ul>
+			</form>
+		</div>
+	</body>
 </html>
 
 <!-- 
